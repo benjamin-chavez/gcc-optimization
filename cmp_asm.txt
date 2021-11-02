@@ -1,0 +1,27 @@
+***** lines 21-28, disassembled from optimO2 ******
+  4011a0:	48 89 e2             	mov    %rsp,%rdx           // 6
+  4011a3:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+  4011a8:	48 63 0a             	movslq (%rdx),%rcx         // 5
+  4011ab:	83 f9 7f             	cmp    $0x7f,%ecx          
+  4011ae:	7e 03                	jle    4011b3 <main+0xd3>  // jump to 4
+  4011b0:	48 01 cd             	add    %rcx,%rbp
+  4011b3:	48 83 c2 04          	add    $0x4,%rdx           // 4
+  4011b7:	48 39 d3             	cmp    %rdx,%rbx
+  4011ba:	75 ec                	jne    4011a8 <main+0xc8>  // jump to 5
+  4011bc:	83 e8 01             	sub    $0x1,%eax
+  4011bf:	75 df                	jne    4011a0 <main+0xc0>  // jump to 6
+
+
+***** lines 21-28, disassembled from optimO3 ******
+  4011a0:	48 89 e2             	mov    %rsp,%rdx         // 2                
+  4011a3:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)                    i = 100000
+  4011a8:	48 63 0a             	movslq (%rdx),%rcx       // 1
+  4011ab:	48 89 ce             	mov    %rcx,%rsi                           // not in -O2
+  4011ae:	48 01 d9             	add    %rbx,%rcx                           sum += data[c]
+  4011b1:	83 fe 7f             	cmp    $0x7f,%esi                          7f = 127
+  4011b4:	48 0f 4f d9          	cmovg  %rcx,%rbx                           // not in -O2
+  4011b8:	48 83 c2 04          	add    $0x4,%rdx
+  4011bc:	49 39 d4             	cmp    %rdx,%r12           
+  4011bf:	75 e7                	jne    4011a8 <main+0xc8> // jump to 1
+  4011c1:	83 e8 01             	sub    $0x1,%eax                            i = i-1 
+  4011c4:	75 da                	jne    4011a0 <main+0xc0> // jump to 2      if i!=0  
