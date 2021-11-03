@@ -2,8 +2,6 @@
 #include <ctime>
 #include <iostream>
 
-//long long sum = 0;
-
 int main()
 {
     // Generate data
@@ -23,11 +21,10 @@ int main()
     for (unsigned i = 0; i < 100000; ++i)
     {
         // Primary loop
-        for (unsigned c = arraySize; c > 0; --c)
+        for (unsigned c = 0; c < arraySize; ++c)
         {
-	  // if (data[c] >= 128)
-	  // sum += data[c];
-	  sum += (data[c] >= 128 ? data[c] : 0);
+            if (data[c] >= 128)
+                sum += data[c];
         }
     }
 
