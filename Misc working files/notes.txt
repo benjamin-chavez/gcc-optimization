@@ -1,0 +1,48 @@
+-fgcse-after-reload -finline-functions -fipa-cp-clone -fpredictive-commoning -ftree-loop-distribute-patterns -ftree-vectorize -funswitch-loops. 
+
+I found that adding -ftree-vectorize
+
+Test Code:
+pres.cpp
+  - O2 (faster)
+  - O3 (slower)
+
+  - O2 Sorted (slower)
+  - O3 Sorted (faster)
+
+  - O2 sumGlobal (about equal)
+  - O3 sumGlobal (about equal)
+
+  - O2 Ternary (slower)
+  - O3 Ternary (faster)
+
+test.c
+  - gcc-4.9 -DCMOV -Wall - O2 test.c  (slower)
+  - gcc-4.9 -Wall - O2 test.c         (faster)
+
+  - gcc-4.9 -DCMOV -Wall - O3 test.c  (slower)
+  - gcc-4.9 -Wall - O3 test.c         (faster)
+
+Terms:
+ - Branchless Code: Branchless programming is a programming technique that eliminates the branches (if, switch, and other conditional statements) from the program.
+ - CMOV
+ - instruction pipelining
+ - Out of Order Execution (OOE)
+ - Vector Processing
+ - branch-prediction
+ - speculative execution
+
+
+ misc notes:
+ - Modern compiles recognize some patterns and optimize them with branchless code.
+ - Branchless code can give you a noticeable performance improvement especially if you use conditionals iterativel
+ - NOTHING IS VECTORIZED**
+
+
+Resources:
+ - https://gcc.gnu.org/projects/tree-ssa/vectorization.html
+ - https://stackoverflow.com/questions/33758993/why-doesnt-gcc-show-vectorization-information
+ - https://gcc.gnu.org/onlinedocs/gcc/Developer-Options.html#index-fopt-info-1337
+ - https://gcc.gnu.org/projects/tree-ssa/
+ - https://monoinfinito.wordpress.com/series/vectorization-in-gcc/
+ - https://dev.to/jobinrjohnson/branchless-programming-does-it-really-matter-20j4

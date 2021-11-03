@@ -1,0 +1,465 @@
+g++-4.9 -O2 -ftree-vectorize -fopt-info-vec-missed elapsedtime.cpp  |& tee -a  vectorize.txt
+
+Output Below:
+***********************************************
+
+/usr/include/c++/4.9/bits/stl_algo.h:1844:7: note: not vectorized: number of iterations cannot be computed.
+/usr/include/c++/4.9/bits/stl_algo.h:1844:7: note: bad inner-loop form.
+/usr/include/c++/4.9/bits/stl_algo.h:1844:7: note: not vectorized: Bad inner loop.
+/usr/include/c++/4.9/bits/stl_algo.h:1844:7: note: bad loop form.
+/usr/include/c++/4.9/bits/stl_algo.h:1827:7: note: not vectorized: number of iterations cannot be computed.
+/usr/include/c++/4.9/bits/stl_algo.h:1827:7: note: bad loop form.
+/usr/include/c++/4.9/bits/stl_algo.h:1842:7: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1842:30: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1844:50: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1839:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1846:4: note: not consecutive access _6 = *__first_1(D);
+
+/usr/include/c++/4.9/bits/stl_algo.h:1846:4: note: SLP: step doesn't divide the vector-size.
+/usr/include/c++/4.9/bits/stl_algo.h:1846:4: note: Unknown alignment for access: *__first_1(D)
+/usr/include/c++/4.9/bits/stl_algo.h:1846:4: note: Failed to SLP the basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1846:4: note: not vectorized: failed to find SLP opportunities in basic block.
+/usr/include/c++/4.9/bits/stl_algobase.h:576:36: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algobase.h:578:33: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1851:8: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1826:7: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1839:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1829:4: note: SLP: step doesn't divide the vector-size.
+/usr/include/c++/4.9/bits/stl_algo.h:1829:4: note: Unknown alignment for access: *__i_34
+/usr/include/c++/4.9/bits/stl_algo.h:1829:4: note: SLP: step doesn't divide the vector-size.
+/usr/include/c++/4.9/bits/stl_algo.h:1829:4: note: Unknown alignment for access: *__i_34
+/usr/include/c++/4.9/bits/stl_algo.h:1829:4: note: Failed to SLP the basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1829:4: note: not vectorized: failed to find SLP opportunities in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1839:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1839:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1833:7: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1844:7: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1839:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:131:14: note: not vectorized: control flow in loop.
+/usr/include/c++/4.9/bits/stl_heap.h:131:14: note: bad loop form.
+/usr/include/c++/4.9/bits/stl_heap.h:212:7: note: not vectorized: control flow in loop.
+/usr/include/c++/4.9/bits/stl_heap.h:212:7: note: bad loop form.
+/usr/include/c++/4.9/bits/stl_heap.h:212:7: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:207:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:214:4: note: Failed to SLP the basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:214:4: note: not vectorized: failed to find SLP opportunities in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:217:6: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:218:14: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:207:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:221:7: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:221:7: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:223:4: note: not consecutive access _42 = *_41;
+
+/usr/include/c++/4.9/bits/stl_heap.h:223:4: note: not consecutive access *prephitmp_134 = _42;
+
+/usr/include/c++/4.9/bits/stl_heap.h:223:4: note: Failed to SLP the basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:223:4: note: not vectorized: failed to find SLP opportunities in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:129:7: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:128:48: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:207:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:131:14: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:207:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:133:4: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:207:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:207:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:135:7: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:221:7: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:207:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:207:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:393:7: note: not vectorized: number of iterations cannot be computed.
+/usr/include/c++/4.9/bits/stl_heap.h:393:7: note: bad loop form.
+/usr/include/c++/4.9/bits/stl_heap.h:335:4: note: not vectorized: latch block not empty.
+/usr/include/c++/4.9/bits/stl_heap.h:335:4: note: bad loop form.
+/usr/include/c++/4.9/bits/stl_algo.h:1950:4: note: not vectorized: multiple nested loops.
+/usr/include/c++/4.9/bits/stl_algo.h:1950:4: note: bad loop form.
+/usr/include/c++/4.9/bits/stl_algo.h:1906:4: note: not vectorized: multiple nested loops.
+/usr/include/c++/4.9/bits/stl_algo.h:1906:4: note: bad loop form.
+/usr/include/c++/4.9/bits/stl_algo.h:1904:4: note: not vectorized: number of iterations cannot be computed.
+/usr/include/c++/4.9/bits/stl_algo.h:1904:4: note: bad loop form.
+/usr/include/c++/4.9/bits/stl_algo.h:1901:4: note: not vectorized: number of iterations cannot be computed.
+/usr/include/c++/4.9/bits/stl_algo.h:1901:4: note: bad loop form.
+/usr/include/c++/4.9/bits/stl_algo.h:1943:7: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1945:4: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1945:4: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1939:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1939:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:328:44: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:393:7: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:332:25: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:337:4: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1939:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:395:4: note: not consecutive access _44 = *__first_2(D);
+
+/usr/include/c++/4.9/bits/stl_heap.h:395:4: note: SLP: step doesn't divide the vector-size.
+/usr/include/c++/4.9/bits/stl_heap.h:395:4: note: Unknown alignment for access: *__last_51
+/usr/include/c++/4.9/bits/stl_heap.h:395:4: note: SLP: step doesn't divide the vector-size.
+/usr/include/c++/4.9/bits/stl_heap.h:395:4: note: Unknown alignment for access: *__last_51
+/usr/include/c++/4.9/bits/stl_heap.h:395:4: note: Failed to SLP the basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:395:4: note: not vectorized: failed to find SLP opportunities in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1939:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1939:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1950:4: note: not consecutive access _73 = *__mid_56;
+
+/usr/include/c++/4.9/bits/stl_algo.h:1950:4: note: not consecutive access _14 = MEM[(int *)__first_2(D) + 4B];
+
+/usr/include/c++/4.9/bits/stl_algo.h:1950:4: note: Failed to SLP the basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1950:4: note: not vectorized: failed to find SLP opportunities in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:83:4: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/move.h:175:19: note: not consecutive access *__mid_56 = __tmp_75;
+
+/usr/include/c++/4.9/bits/move.h:175:19: note: not consecutive access __tmp_75 = *__first_2(D);
+
+/usr/include/c++/4.9/bits/move.h:175:19: note: not consecutive access *__first_2(D) = _73;
+
+/usr/include/c++/4.9/bits/move.h:175:19: note: not consecutive access pretmp_138 = MEM[(int *)__last_115 + -4B];
+
+/usr/include/c++/4.9/bits/move.h:175:19: note: Failed to SLP the basic block.
+/usr/include/c++/4.9/bits/move.h:175:19: note: not vectorized: failed to find SLP opportunities in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1939:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:85:9: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/move.h:175:19: note: not consecutive access __tmp_76 = *__first_2(D);
+
+/usr/include/c++/4.9/bits/move.h:175:19: note: not consecutive access *__first_2(D) = _74;
+
+/usr/include/c++/4.9/bits/move.h:175:19: note: not consecutive access MEM[(int &)__last_115 + 18446744073709551612] = __tmp_76;
+
+/usr/include/c++/4.9/bits/move.h:175:19: note: Failed to SLP the basic block.
+/usr/include/c++/4.9/bits/move.h:175:19: note: not vectorized: failed to find SLP opportunities in basic block.
+/usr/include/c++/4.9/bits/move.h:175:19: note: not consecutive access __tmp_77 = *__first_2(D);
+
+/usr/include/c++/4.9/bits/move.h:175:19: note: not consecutive access pretmp_123 = MEM[(int *)__last_115 + -4B];
+
+/usr/include/c++/4.9/bits/move.h:175:19: note: Build SLP failed: unrolling required in basic block SLP
+/usr/include/c++/4.9/bits/move.h:175:19: note: Failed to SLP the basic block.
+/usr/include/c++/4.9/bits/move.h:175:19: note: not vectorized: failed to find SLP opportunities in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:90:12: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/move.h:175:19: note: not consecutive access __tmp_79 = *__first_2(D);
+
+/usr/include/c++/4.9/bits/move.h:175:19: note: not consecutive access pretmp_112 = MEM[(int *)__last_115 + -4B];
+
+/usr/include/c++/4.9/bits/move.h:175:19: note: Build SLP failed: unrolling required in basic block SLP
+/usr/include/c++/4.9/bits/move.h:175:19: note: Failed to SLP the basic block.
+/usr/include/c++/4.9/bits/move.h:175:19: note: not vectorized: failed to find SLP opportunities in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:92:12: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/move.h:175:19: note: not consecutive access __tmp_80 = *__first_2(D);
+
+/usr/include/c++/4.9/bits/move.h:175:19: note: not consecutive access *__first_2(D) = _78;
+
+/usr/include/c++/4.9/bits/move.h:175:19: note: not consecutive access MEM[(int &)__last_115 + 18446744073709551612] = __tmp_80;
+
+/usr/include/c++/4.9/bits/move.h:175:19: note: Failed to SLP the basic block.
+/usr/include/c++/4.9/bits/move.h:175:19: note: not vectorized: failed to find SLP opportunities in basic block.
+/usr/include/c++/4.9/bits/move.h:175:19: note: not consecutive access *__mid_56 = __tmp_81;
+
+/usr/include/c++/4.9/bits/move.h:175:19: note: not consecutive access __tmp_81 = *__first_2(D);
+
+/usr/include/c++/4.9/bits/move.h:175:19: note: not consecutive access *__first_2(D) = _73;
+
+/usr/include/c++/4.9/bits/move.h:175:19: note: not consecutive access pretmp_25 = MEM[(int *)__last_115 + -4B];
+
+/usr/include/c++/4.9/bits/move.h:175:19: note: Failed to SLP the basic block.
+/usr/include/c++/4.9/bits/move.h:175:19: note: not vectorized: failed to find SLP opportunities in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1901:4: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1939:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1902:6: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1939:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1939:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1903:4: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1939:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1905:6: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1939:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1939:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1906:4: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1953:4: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/move.h:176:7: note: not consecutive access *__last_40 = __tmp_38;
+
+/usr/include/c++/4.9/bits/move.h:176:7: note: not consecutive access *__last_46 = _41;
+
+/usr/include/c++/4.9/bits/move.h:176:7: note: Failed to SLP the basic block.
+/usr/include/c++/4.9/bits/move.h:176:7: note: not vectorized: failed to find SLP opportunities in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1909:4: note: not consecutive access pretmp_120 = *__first_2(D);
+
+/usr/include/c++/4.9/bits/stl_algo.h:1909:4: note: not consecutive access pretmp_131 = MEM[(int *)__last_40 + -4B];
+
+/usr/include/c++/4.9/bits/stl_algo.h:1909:4: note: not consecutive access pretmp_125 = MEM[(int *)__last_46 + 4B];
+
+/usr/include/c++/4.9/bits/stl_algo.h:1909:4: note: Failed to SLP the basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1909:4: note: not vectorized: failed to find SLP opportunities in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1948:8: note: not vectorized: not enough data-refs in basic block.
+elapsedtime.cpp:23:5: note: reduction used in loop.
+elapsedtime.cpp:23:5: note: Unknown def-use cycle pattern.
+elapsedtime.cpp:23:5: note: Unsupported pattern.
+elapsedtime.cpp:23:5: note: not vectorized: unsupported use in stmt.
+elapsedtime.cpp:23:5: note: unexpected pattern.
+elapsedtime.cpp:26:9: note: reduction used in loop.
+elapsedtime.cpp:26:9: note: Unknown def-use cycle pattern.
+elapsedtime.cpp:26:9: note: Unsupported pattern.
+elapsedtime.cpp:26:9: note: not vectorized: unsupported use in stmt.
+elapsedtime.cpp:26:9: note: unexpected pattern.
+/usr/include/c++/4.9/bits/stl_algo.h:1865:7: note: not vectorized: number of iterations cannot be computed.
+/usr/include/c++/4.9/bits/stl_algo.h:1865:7: note: bad inner-loop form.
+/usr/include/c++/4.9/bits/stl_algo.h:1865:7: note: not vectorized: Bad inner loop.
+/usr/include/c++/4.9/bits/stl_algo.h:1865:7: note: bad loop form.
+/usr/include/c++/4.9/bits/stl_algo.h:1827:7: note: not vectorized: number of iterations cannot be computed.
+/usr/include/c++/4.9/bits/stl_algo.h:1827:7: note: bad loop form.
+elapsedtime.cpp:13:5: note: not vectorized: loop contains function calls or data references that cannot be analyzed
+elapsedtime.cpp:13:5: note: bad data references.
+elapsedtime.cpp:7:5: note: not vectorized: not enough data-refs in basic block.
+elapsedtime.cpp:14:29: note: not vectorized: not enough data-refs in basic block.
+elapsedtime.cpp:7:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1967:4: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1824:10: note: SLP: step doesn't divide the vector-size.
+/usr/include/c++/4.9/bits/stl_algo.h:1824:10: note: Unknown alignment for access: data
+/usr/include/c++/4.9/bits/stl_algo.h:1824:10: note: SLP: step doesn't divide the vector-size.
+/usr/include/c++/4.9/bits/stl_algo.h:1824:10: note: Unknown alignment for access: data
+/usr/include/c++/4.9/bits/stl_algo.h:1824:10: note: Failed to SLP the basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1824:10: note: not vectorized: failed to find SLP opportunities in basic block.
+elapsedtime.cpp:7:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1829:4: note: SLP: step doesn't divide the vector-size.
+/usr/include/c++/4.9/bits/stl_algo.h:1829:4: note: Unknown alignment for access: *__first_61
+/usr/include/c++/4.9/bits/stl_algo.h:1829:4: note: SLP: step doesn't divide the vector-size.
+/usr/include/c++/4.9/bits/stl_algo.h:1829:4: note: Unknown alignment for access: *__first_61
+/usr/include/c++/4.9/bits/stl_algo.h:1829:4: note: Failed to SLP the basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1829:4: note: not vectorized: failed to find SLP opportunities in basic block.
+elapsedtime.cpp:7:5: note: not vectorized: not enough data-refs in basic block.
+elapsedtime.cpp:7:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1833:7: note: not vectorized: not enough data-refs in basic block.
+elapsedtime.cpp:7:5: note: not vectorized: not enough data-refs in basic block.
+elapsedtime.cpp:20:27: note: not vectorized: not enough data-refs in basic block.
+elapsedtime.cpp:7:5: note: not vectorized: not enough data-refs in basic block.
+elapsedtime.cpp:28:23: note: not vectorized: not enough data-refs in basic block.
+elapsedtime.cpp:23:5: note: not vectorized: not enough data-refs in basic block.
+elapsedtime.cpp:7:5: note: not vectorized: not enough data-refs in basic block.
+elapsedtime.cpp:7:5: note: not vectorized: not enough data-refs in basic block.
+elapsedtime.cpp:33:52: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/iostream:74:25: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1844:7: note: not vectorized: number of iterations cannot be computed.
+/usr/include/c++/4.9/bits/stl_algo.h:1844:7: note: bad inner-loop form.
+/usr/include/c++/4.9/bits/stl_algo.h:1844:7: note: not vectorized: Bad inner loop.
+/usr/include/c++/4.9/bits/stl_algo.h:1844:7: note: bad loop form.
+/usr/include/c++/4.9/bits/stl_algo.h:1827:7: note: not vectorized: number of iterations cannot be computed.
+/usr/include/c++/4.9/bits/stl_algo.h:1827:7: note: bad loop form.
+/usr/include/c++/4.9/bits/stl_algo.h:1842:7: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1842:30: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1844:50: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1839:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1846:4: note: not consecutive access _6 = *__first_1(D);
+
+/usr/include/c++/4.9/bits/stl_algo.h:1846:4: note: SLP: step doesn't divide the vector-size.
+/usr/include/c++/4.9/bits/stl_algo.h:1846:4: note: Unknown alignment for access: *__first_1(D)
+/usr/include/c++/4.9/bits/stl_algo.h:1846:4: note: Failed to SLP the basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1846:4: note: not vectorized: failed to find SLP opportunities in basic block.
+/usr/include/c++/4.9/bits/stl_algobase.h:576:36: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algobase.h:578:33: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1851:8: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1826:7: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1839:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1829:4: note: SLP: step doesn't divide the vector-size.
+/usr/include/c++/4.9/bits/stl_algo.h:1829:4: note: Unknown alignment for access: *__i_34
+/usr/include/c++/4.9/bits/stl_algo.h:1829:4: note: SLP: step doesn't divide the vector-size.
+/usr/include/c++/4.9/bits/stl_algo.h:1829:4: note: Unknown alignment for access: *__i_34
+/usr/include/c++/4.9/bits/stl_algo.h:1829:4: note: Failed to SLP the basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1829:4: note: not vectorized: failed to find SLP opportunities in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1839:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1839:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1833:7: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1844:7: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1839:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:131:14: note: not vectorized: control flow in loop.
+/usr/include/c++/4.9/bits/stl_heap.h:131:14: note: bad loop form.
+/usr/include/c++/4.9/bits/stl_heap.h:212:7: note: not vectorized: control flow in loop.
+/usr/include/c++/4.9/bits/stl_heap.h:212:7: note: bad loop form.
+/usr/include/c++/4.9/bits/stl_heap.h:212:7: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:207:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:214:4: note: Failed to SLP the basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:214:4: note: not vectorized: failed to find SLP opportunities in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:217:6: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:218:14: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:207:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:221:7: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:221:7: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:223:4: note: not consecutive access _42 = *_41;
+
+/usr/include/c++/4.9/bits/stl_heap.h:223:4: note: not consecutive access *prephitmp_143 = _42;
+
+/usr/include/c++/4.9/bits/stl_heap.h:223:4: note: Failed to SLP the basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:223:4: note: not vectorized: failed to find SLP opportunities in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:129:7: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:128:48: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:207:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:131:14: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:207:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:133:4: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:207:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:207:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:135:7: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:221:7: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:207:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:207:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:393:7: note: not vectorized: number of iterations cannot be computed.
+/usr/include/c++/4.9/bits/stl_heap.h:393:7: note: bad loop form.
+/usr/include/c++/4.9/bits/stl_heap.h:335:4: note: not vectorized: latch block not empty.
+/usr/include/c++/4.9/bits/stl_heap.h:335:4: note: bad loop form.
+/usr/include/c++/4.9/bits/stl_algo.h:1950:4: note: not vectorized: multiple nested loops.
+/usr/include/c++/4.9/bits/stl_algo.h:1950:4: note: bad loop form.
+/usr/include/c++/4.9/bits/stl_algo.h:1906:4: note: not vectorized: multiple nested loops.
+/usr/include/c++/4.9/bits/stl_algo.h:1906:4: note: bad loop form.
+/usr/include/c++/4.9/bits/stl_algo.h:1904:4: note: not vectorized: number of iterations cannot be computed.
+/usr/include/c++/4.9/bits/stl_algo.h:1904:4: note: bad loop form.
+/usr/include/c++/4.9/bits/stl_algo.h:1901:4: note: not vectorized: number of iterations cannot be computed.
+/usr/include/c++/4.9/bits/stl_algo.h:1901:4: note: bad loop form.
+/usr/include/c++/4.9/bits/stl_algo.h:1943:7: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1945:4: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1945:4: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1939:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1939:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:328:44: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:393:7: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:332:25: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:337:4: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1939:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:395:4: note: not consecutive access _44 = *__first_2(D);
+
+/usr/include/c++/4.9/bits/stl_heap.h:395:4: note: SLP: step doesn't divide the vector-size.
+/usr/include/c++/4.9/bits/stl_heap.h:395:4: note: Unknown alignment for access: *__last_51
+/usr/include/c++/4.9/bits/stl_heap.h:395:4: note: SLP: step doesn't divide the vector-size.
+/usr/include/c++/4.9/bits/stl_heap.h:395:4: note: Unknown alignment for access: *__last_51
+/usr/include/c++/4.9/bits/stl_heap.h:395:4: note: Failed to SLP the basic block.
+/usr/include/c++/4.9/bits/stl_heap.h:395:4: note: not vectorized: failed to find SLP opportunities in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1939:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1939:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1950:4: note: not consecutive access _73 = *__mid_56;
+
+/usr/include/c++/4.9/bits/stl_algo.h:1950:4: note: not consecutive access _14 = MEM[(int *)__first_2(D) + 4B];
+
+/usr/include/c++/4.9/bits/stl_algo.h:1950:4: note: Failed to SLP the basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1950:4: note: not vectorized: failed to find SLP opportunities in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:83:4: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/move.h:175:19: note: not consecutive access *__mid_56 = __tmp_75;
+
+/usr/include/c++/4.9/bits/move.h:175:19: note: not consecutive access __tmp_75 = *__first_2(D);
+
+/usr/include/c++/4.9/bits/move.h:175:19: note: not consecutive access *__first_2(D) = _73;
+
+/usr/include/c++/4.9/bits/move.h:175:19: note: not consecutive access pretmp_112 = MEM[(int *)__last_115 + -4B];
+
+/usr/include/c++/4.9/bits/move.h:175:19: note: Failed to SLP the basic block.
+/usr/include/c++/4.9/bits/move.h:175:19: note: not vectorized: failed to find SLP opportunities in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1939:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:85:9: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/move.h:175:19: note: not consecutive access __tmp_76 = *__first_2(D);
+
+/usr/include/c++/4.9/bits/move.h:175:19: note: not consecutive access *__first_2(D) = _74;
+
+/usr/include/c++/4.9/bits/move.h:175:19: note: not consecutive access MEM[(int &)__last_115 + 18446744073709551612] = __tmp_76;
+
+/usr/include/c++/4.9/bits/move.h:175:19: note: Failed to SLP the basic block.
+/usr/include/c++/4.9/bits/move.h:175:19: note: not vectorized: failed to find SLP opportunities in basic block.
+/usr/include/c++/4.9/bits/move.h:175:19: note: not consecutive access __tmp_77 = *__first_2(D);
+
+/usr/include/c++/4.9/bits/move.h:175:19: note: not consecutive access pretmp_138 = MEM[(int *)__last_115 + -4B];
+
+/usr/include/c++/4.9/bits/move.h:175:19: note: Build SLP failed: unrolling required in basic block SLP
+/usr/include/c++/4.9/bits/move.h:175:19: note: Failed to SLP the basic block.
+/usr/include/c++/4.9/bits/move.h:175:19: note: not vectorized: failed to find SLP opportunities in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:90:12: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/move.h:175:19: note: not consecutive access __tmp_79 = *__first_2(D);
+
+/usr/include/c++/4.9/bits/move.h:175:19: note: not consecutive access pretmp_25 = MEM[(int *)__last_115 + -4B];
+
+/usr/include/c++/4.9/bits/move.h:175:19: note: Build SLP failed: unrolling required in basic block SLP
+/usr/include/c++/4.9/bits/move.h:175:19: note: Failed to SLP the basic block.
+/usr/include/c++/4.9/bits/move.h:175:19: note: not vectorized: failed to find SLP opportunities in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:92:12: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/move.h:175:19: note: not consecutive access __tmp_80 = *__first_2(D);
+
+/usr/include/c++/4.9/bits/move.h:175:19: note: not consecutive access *__first_2(D) = _78;
+
+/usr/include/c++/4.9/bits/move.h:175:19: note: not consecutive access MEM[(int &)__last_115 + 18446744073709551612] = __tmp_80;
+
+/usr/include/c++/4.9/bits/move.h:175:19: note: Failed to SLP the basic block.
+/usr/include/c++/4.9/bits/move.h:175:19: note: not vectorized: failed to find SLP opportunities in basic block.
+/usr/include/c++/4.9/bits/move.h:175:19: note: not consecutive access *__mid_56 = __tmp_81;
+
+/usr/include/c++/4.9/bits/move.h:175:19: note: not consecutive access __tmp_81 = *__first_2(D);
+
+/usr/include/c++/4.9/bits/move.h:175:19: note: not consecutive access *__first_2(D) = _73;
+
+/usr/include/c++/4.9/bits/move.h:175:19: note: not consecutive access pretmp_109 = MEM[(int *)__last_115 + -4B];
+
+/usr/include/c++/4.9/bits/move.h:175:19: note: Failed to SLP the basic block.
+/usr/include/c++/4.9/bits/move.h:175:19: note: not vectorized: failed to find SLP opportunities in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1901:4: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1939:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1902:6: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1939:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1939:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1903:4: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1939:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1905:6: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1939:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1939:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1906:4: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1953:4: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/move.h:176:7: note: not consecutive access *__last_40 = __tmp_38;
+
+/usr/include/c++/4.9/bits/move.h:176:7: note: not consecutive access *__last_46 = _41;
+
+/usr/include/c++/4.9/bits/move.h:176:7: note: Failed to SLP the basic block.
+/usr/include/c++/4.9/bits/move.h:176:7: note: not vectorized: failed to find SLP opportunities in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1909:4: note: not consecutive access pretmp_152 = *__first_2(D);
+
+/usr/include/c++/4.9/bits/stl_algo.h:1909:4: note: not consecutive access pretmp_130 = MEM[(int *)__last_40 + -4B];
+
+/usr/include/c++/4.9/bits/stl_algo.h:1909:4: note: not consecutive access pretmp_126 = MEM[(int *)__last_46 + 4B];
+
+/usr/include/c++/4.9/bits/stl_algo.h:1909:4: note: Failed to SLP the basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1909:4: note: not vectorized: failed to find SLP opportunities in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1948:8: note: not vectorized: not enough data-refs in basic block.
+elapsedtime.cpp:23:5: note: reduction used in loop.
+elapsedtime.cpp:23:5: note: Unknown def-use cycle pattern.
+elapsedtime.cpp:23:5: note: Unsupported pattern.
+elapsedtime.cpp:23:5: note: not vectorized: unsupported use in stmt.
+elapsedtime.cpp:23:5: note: unexpected pattern.
+elapsedtime.cpp:26:9: note: reduction used in loop.
+elapsedtime.cpp:26:9: note: Unknown def-use cycle pattern.
+elapsedtime.cpp:26:9: note: Unsupported pattern.
+elapsedtime.cpp:26:9: note: not vectorized: unsupported use in stmt.
+elapsedtime.cpp:26:9: note: unexpected pattern.
+/usr/include/c++/4.9/bits/stl_algo.h:1865:7: note: not vectorized: number of iterations cannot be computed.
+/usr/include/c++/4.9/bits/stl_algo.h:1865:7: note: bad inner-loop form.
+/usr/include/c++/4.9/bits/stl_algo.h:1865:7: note: not vectorized: Bad inner loop.
+/usr/include/c++/4.9/bits/stl_algo.h:1865:7: note: bad loop form.
+/usr/include/c++/4.9/bits/stl_algo.h:1827:7: note: not vectorized: number of iterations cannot be computed.
+/usr/include/c++/4.9/bits/stl_algo.h:1827:7: note: bad loop form.
+elapsedtime.cpp:13:5: note: not vectorized: loop contains function calls or data references that cannot be analyzed
+elapsedtime.cpp:13:5: note: bad data references.
+elapsedtime.cpp:7:5: note: not vectorized: not enough data-refs in basic block.
+elapsedtime.cpp:14:29: note: not vectorized: not enough data-refs in basic block.
+elapsedtime.cpp:7:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1967:4: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1824:10: note: SLP: step doesn't divide the vector-size.
+/usr/include/c++/4.9/bits/stl_algo.h:1824:10: note: Unknown alignment for access: data
+/usr/include/c++/4.9/bits/stl_algo.h:1824:10: note: SLP: step doesn't divide the vector-size.
+/usr/include/c++/4.9/bits/stl_algo.h:1824:10: note: Unknown alignment for access: data
+/usr/include/c++/4.9/bits/stl_algo.h:1824:10: note: Failed to SLP the basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1824:10: note: not vectorized: failed to find SLP opportunities in basic block.
+elapsedtime.cpp:7:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1829:4: note: SLP: step doesn't divide the vector-size.
+/usr/include/c++/4.9/bits/stl_algo.h:1829:4: note: Unknown alignment for access: *__first_61
+/usr/include/c++/4.9/bits/stl_algo.h:1829:4: note: SLP: step doesn't divide the vector-size.
+/usr/include/c++/4.9/bits/stl_algo.h:1829:4: note: Unknown alignment for access: *__first_61
+/usr/include/c++/4.9/bits/stl_algo.h:1829:4: note: Failed to SLP the basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1829:4: note: not vectorized: failed to find SLP opportunities in basic block.
+elapsedtime.cpp:7:5: note: not vectorized: not enough data-refs in basic block.
+elapsedtime.cpp:7:5: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/bits/stl_algo.h:1833:7: note: not vectorized: not enough data-refs in basic block.
+elapsedtime.cpp:7:5: note: not vectorized: not enough data-refs in basic block.
+elapsedtime.cpp:20:27: note: not vectorized: not enough data-refs in basic block.
+elapsedtime.cpp:7:5: note: not vectorized: not enough data-refs in basic block.
+elapsedtime.cpp:28:23: note: not vectorized: not enough data-refs in basic block.
+elapsedtime.cpp:23:5: note: not vectorized: not enough data-refs in basic block.
+elapsedtime.cpp:7:5: note: not vectorized: not enough data-refs in basic block.
+elapsedtime.cpp:7:5: note: not vectorized: not enough data-refs in basic block.
+elapsedtime.cpp:33:52: note: not vectorized: not enough data-refs in basic block.
+/usr/include/c++/4.9/iostream:74:25: note: not vectorized: not enough data-refs in basic block.

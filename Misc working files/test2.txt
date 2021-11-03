@@ -1,0 +1,594 @@
+➜  gcc-optimization git:(master) ✗ g++-4.9 -O2 -ftree-vectorize -ftree-vectorizer-verbose=7 -S -c elapsedtime.cpp -o /dev/stdout | c++filt
+	.file	"elapsedtime.cpp"
+	.section	.text.unlikely,"ax",@progbits
+.LCOLDB0:
+	.text
+.LHOTB0:
+	.p2align 4,,15
+	.type	void std::__insertion_sort<int*, __gnu_cxx::__ops::_Iter_less_iter>(int*, int*, __gnu_cxx::__ops::_Iter_less_iter) [clone .isra.11], @function
+void std::__insertion_sort<int*, __gnu_cxx::__ops::_Iter_less_iter>(int*, int*, __gnu_cxx::__ops::_Iter_less_iter) [clone .isra.11]:
+.LFB1314:
+	.cfi_startproc
+	cmpq	%rsi, %rdi
+	je	.L18
+	pushq	%r14
+	.cfi_def_cfa_offset 16
+	.cfi_offset 14, -16
+	pushq	%r13
+	.cfi_def_cfa_offset 24
+	.cfi_offset 13, -24
+	pushq	%r12
+	.cfi_def_cfa_offset 32
+	.cfi_offset 12, -32
+	pushq	%rbp
+	.cfi_def_cfa_offset 40
+	.cfi_offset 6, -40
+	leaq	4(%rdi), %rbp
+	pushq	%rbx
+	.cfi_def_cfa_offset 48
+	.cfi_offset 3, -48
+	cmpq	%rbp, %rsi
+	je	.L1
+	movq	%rsi, %r14
+	movq	%rdi, %r13
+	movl	$4, %r12d
+	.p2align 4,,10
+	.p2align 3
+.L9:
+	movl	0(%rbp), %ebx
+	cmpl	0(%r13), %ebx
+	jl	.L21
+	movl	-4(%rbp), %edx
+	leaq	-4(%rbp), %rax
+	cmpl	%edx, %ebx
+	jl	.L8
+	jmp	.L22
+	.p2align 4,,10
+	.p2align 3
+.L11:
+	movq	%rcx, %rax
+.L8:
+	movl	%edx, 4(%rax)
+	movl	-4(%rax), %edx
+	leaq	-4(%rax), %rcx
+	cmpl	%edx, %ebx
+	jl	.L11
+.L7:
+	movl	%ebx, (%rax)
+.L6:
+	addq	$4, %rbp
+	cmpq	%rbp, %r14
+	jne	.L9
+.L1:
+	popq	%rbx
+	.cfi_restore 3
+	.cfi_def_cfa_offset 40
+	popq	%rbp
+	.cfi_restore 6
+	.cfi_def_cfa_offset 32
+	popq	%r12
+	.cfi_restore 12
+	.cfi_def_cfa_offset 24
+	popq	%r13
+	.cfi_restore 13
+	.cfi_def_cfa_offset 16
+	popq	%r14
+	.cfi_restore 14
+	.cfi_def_cfa_offset 8
+.L18:
+	rep ret
+	.p2align 4,,10
+	.p2align 3
+.L21:
+	.cfi_def_cfa_offset 48
+	.cfi_offset 3, -48
+	.cfi_offset 6, -40
+	.cfi_offset 12, -32
+	.cfi_offset 13, -24
+	.cfi_offset 14, -16
+	movq	%rbp, %rdx
+	subq	%r13, %rdx
+	movq	%rdx, %rax
+	sarq	$2, %rax
+	testq	%rax, %rax
+	je	.L5
+	movq	%r12, %rdi
+	movq	%r13, %rsi
+	subq	%rdx, %rdi
+	addq	%rbp, %rdi
+	call	memmove
+.L5:
+	movl	%ebx, 0(%r13)
+	jmp	.L6
+.L22:
+	movq	%rbp, %rax
+	jmp	.L7
+	.cfi_endproc
+.LFE1314:
+	.size	void std::__insertion_sort<int*, __gnu_cxx::__ops::_Iter_less_iter>(int*, int*, __gnu_cxx::__ops::_Iter_less_iter) [clone .isra.11], .-void std::__insertion_sort<int*, __gnu_cxx::__ops::_Iter_less_iter>(int*, int*, __gnu_cxx::__ops::_Iter_less_iter) [clone .isra.11]
+	.section	.text.unlikely
+.LCOLDE0:
+	.text
+.LHOTE0:
+	.section	.text.unlikely._ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_,"axG",@progbits,void std::__adjust_heap<int*, long, int, __gnu_cxx::__ops::_Iter_less_iter>(int*, long, long, int, __gnu_cxx::__ops::_Iter_less_iter),comdat
+.LCOLDB1:
+	.section	.text._ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_,"axG",@progbits,void std::__adjust_heap<int*, long, int, __gnu_cxx::__ops::_Iter_less_iter>(int*, long, long, int, __gnu_cxx::__ops::_Iter_less_iter),comdat
+.LHOTB1:
+	.p2align 4,,15
+	.weak	void std::__adjust_heap<int*, long, int, __gnu_cxx::__ops::_Iter_less_iter>(int*, long, long, int, __gnu_cxx::__ops::_Iter_less_iter)
+	.type	void std::__adjust_heap<int*, long, int, __gnu_cxx::__ops::_Iter_less_iter>(int*, long, long, int, __gnu_cxx::__ops::_Iter_less_iter), @function
+void std::__adjust_heap<int*, long, int, __gnu_cxx::__ops::_Iter_less_iter>(int*, long, long, int, __gnu_cxx::__ops::_Iter_less_iter):
+.LFB1292:
+	.cfi_startproc
+	leaq	-1(%rdx), %rax
+	pushq	%rbx
+	.cfi_def_cfa_offset 16
+	.cfi_offset 3, -16
+	movq	%rax, %rbx
+	shrq	$63, %rbx
+	addq	%rax, %rbx
+	sarq	%rbx
+	cmpq	%rbx, %rsi
+	jge	.L24
+	movq	%rsi, %r11
+	jmp	.L26
+	.p2align 4,,10
+	.p2align 3
+.L32:
+	movq	%rax, %r11
+.L26:
+	leaq	1(%r11), %r8
+	leaq	(%r8,%r8), %rax
+	salq	$3, %r8
+	leaq	(%rdi,%r8), %r9
+	movl	(%r9), %r10d
+	cmpl	-4(%rdi,%r8), %r10d
+	jge	.L25
+	subq	$1, %rax
+	leaq	(%rdi,%rax,4), %r9
+	movl	(%r9), %r10d
+.L25:
+	cmpq	%rbx, %rax
+	movl	%r10d, (%rdi,%r11,4)
+	jl	.L32
+	testb	$1, %dl
+	jne	.L27
+.L31:
+	subq	$2, %rdx
+	movq	%rdx, %r8
+	shrq	$63, %r8
+	addq	%r8, %rdx
+	sarq	%rdx
+	cmpq	%rdx, %rax
+	je	.L36
+.L27:
+	cmpq	%rsi, %rax
+	jle	.L28
+	leaq	-1(%rax), %rdx
+	movq	%rdx, %r8
+	shrq	$63, %r8
+	addq	%rdx, %r8
+	sarq	%r8
+	movl	(%rdi,%r8,4), %r10d
+	cmpl	%r10d, %ecx
+	jle	.L28
+	cmpq	%r8, %rsi
+	leaq	(%rdi,%r8,4), %r9
+	movl	%r10d, (%rdi,%rax,4)
+	jge	.L28
+.L37:
+	leaq	-1(%r8), %rax
+	movq	%rax, %rdx
+	shrq	$63, %rdx
+	addq	%rax, %rdx
+	movq	%r8, %rax
+	sarq	%rdx
+	movl	(%rdi,%rdx,4), %r10d
+	cmpl	%r10d, %ecx
+	jle	.L28
+	movq	%rdx, %r8
+	movl	%r10d, (%rdi,%rax,4)
+	cmpq	%r8, %rsi
+	leaq	(%rdi,%r8,4), %r9
+	jl	.L37
+	.p2align 4,,10
+	.p2align 3
+.L28:
+	movl	%ecx, (%r9)
+	popq	%rbx
+	.cfi_remember_state
+	.cfi_def_cfa_offset 8
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L36:
+	.cfi_restore_state
+	leaq	2(%rax,%rax), %rax
+	movl	-4(%rdi,%rax,4), %edx
+	subq	$1, %rax
+	movl	%edx, (%r9)
+	leaq	(%rdi,%rax,4), %r9
+	jmp	.L27
+.L24:
+	testb	$1, %dl
+	leaq	(%rdi,%rsi,4), %r9
+	movq	%rsi, %rax
+	je	.L31
+	jmp	.L28
+	.cfi_endproc
+.LFE1292:
+	.size	void std::__adjust_heap<int*, long, int, __gnu_cxx::__ops::_Iter_less_iter>(int*, long, long, int, __gnu_cxx::__ops::_Iter_less_iter), .-void std::__adjust_heap<int*, long, int, __gnu_cxx::__ops::_Iter_less_iter>(int*, long, long, int, __gnu_cxx::__ops::_Iter_less_iter)
+	.section	.text.unlikely._ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_,"axG",@progbits,void std::__adjust_heap<int*, long, int, __gnu_cxx::__ops::_Iter_less_iter>(int*, long, long, int, __gnu_cxx::__ops::_Iter_less_iter),comdat
+.LCOLDE1:
+	.section	.text._ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_,"axG",@progbits,void std::__adjust_heap<int*, long, int, __gnu_cxx::__ops::_Iter_less_iter>(int*, long, long, int, __gnu_cxx::__ops::_Iter_less_iter),comdat
+.LHOTE1:
+	.section	.text.unlikely
+.LCOLDB2:
+	.text
+.LHOTB2:
+	.p2align 4,,15
+	.type	void std::__introsort_loop<int*, long, __gnu_cxx::__ops::_Iter_less_iter>(int*, int*, long, __gnu_cxx::__ops::_Iter_less_iter) [clone .isra.20], @function
+void std::__introsort_loop<int*, long, __gnu_cxx::__ops::_Iter_less_iter>(int*, int*, long, __gnu_cxx::__ops::_Iter_less_iter) [clone .isra.20]:
+.LFB1323:
+	.cfi_startproc
+	movq	%rsi, %rax
+	pushq	%r14
+	.cfi_def_cfa_offset 16
+	.cfi_offset 14, -16
+	pushq	%r13
+	.cfi_def_cfa_offset 24
+	.cfi_offset 13, -24
+	subq	%rdi, %rax
+	pushq	%r12
+	.cfi_def_cfa_offset 32
+	.cfi_offset 12, -32
+	movq	%rdi, %r12
+	cmpq	$67, %rax
+	pushq	%rbp
+	.cfi_def_cfa_offset 40
+	.cfi_offset 6, -40
+	pushq	%rbx
+	.cfi_def_cfa_offset 48
+	.cfi_offset 3, -48
+	jle	.L38
+	testq	%rdx, %rdx
+	movq	%rdx, %r13
+	leaq	4(%rdi), %rbp
+	je	.L72
+.L42:
+	sarq	$3, %rax
+	movl	4(%r12), %ecx
+	subq	$1, %r13
+	leaq	(%r12,%rax,4), %rdx
+	movl	-4(%rsi), %edi
+	movl	(%rdx), %eax
+	cmpl	%eax, %ecx
+	jge	.L46
+	cmpl	%edi, %eax
+	jl	.L69
+	cmpl	%edi, %ecx
+	jge	.L70
+.L68:
+	movl	(%r12), %r9d
+	movl	%edi, (%r12)
+	movl	%r9d, -4(%rsi)
+	movl	4(%r12), %r8d
+	movl	(%r12), %ecx
+.L50:
+	movq	%rsi, %rax
+	movq	%rbp, %rdx
+	.p2align 4,,10
+	.p2align 3
+.L48:
+	cmpl	%ecx, %r8d
+	movq	%rdx, %rbx
+	jge	.L53
+	.p2align 4,,10
+	.p2align 3
+.L54:
+	addq	$4, %rbx
+	movl	(%rbx), %r8d
+	cmpl	%ecx, %r8d
+	jl	.L54
+.L53:
+	subq	$4, %rax
+	cmpl	%ecx, %r9d
+	jle	.L55
+	.p2align 4,,10
+	.p2align 3
+.L56:
+	subq	$4, %rax
+	movl	(%rax), %r9d
+	cmpl	%ecx, %r9d
+	jg	.L56
+.L55:
+	cmpq	%rbx, %rax
+	jbe	.L73
+	movl	%r9d, (%rbx)
+	leaq	4(%rbx), %rdx
+	movl	%r8d, (%rax)
+	movl	-4(%rax), %r9d
+	movl	(%r12), %ecx
+	movl	4(%rbx), %r8d
+	jmp	.L48
+.L73:
+	movq	%r13, %rdx
+	movq	%rbx, %rdi
+	movq	%rbx, %r14
+	call	void std::__introsort_loop<int*, long, __gnu_cxx::__ops::_Iter_less_iter>(int*, int*, long, __gnu_cxx::__ops::_Iter_less_iter) [clone .isra.20]
+	movq	%rbx, %rax
+	subq	%r12, %rax
+	cmpq	$67, %rax
+	jle	.L38
+	testq	%r13, %r13
+	je	.L40
+	movq	%rbx, %rsi
+	jmp	.L42
+.L46:
+	cmpl	%edi, %ecx
+	jl	.L70
+	cmpl	%edi, %eax
+	jl	.L68
+.L69:
+	movl	(%r12), %ecx
+	movl	%eax, (%r12)
+	movl	%ecx, (%rdx)
+	movl	4(%r12), %r8d
+	movl	-4(%rsi), %r9d
+	movl	(%r12), %ecx
+	jmp	.L50
+.L70:
+	movl	(%r12), %r8d
+	movl	%ecx, (%r12)
+	movl	%r8d, 4(%r12)
+	movl	-4(%rsi), %r9d
+	jmp	.L50
+.L72:
+	movq	%rsi, %r14
+.L40:
+	sarq	$2, %rax
+	leaq	-2(%rax), %rbp
+	movq	%rax, %rbx
+	sarq	%rbp
+	jmp	.L44
+.L74:
+	subq	$1, %rbp
+.L44:
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 56
+	movl	(%r12,%rbp,4), %ecx
+	movq	%rbp, %rsi
+	pushq	$0
+	.cfi_def_cfa_offset 64
+	movq	%rbx, %rdx
+	movq	%r12, %rdi
+	call	void std::__adjust_heap<int*, long, int, __gnu_cxx::__ops::_Iter_less_iter>(int*, long, long, int, __gnu_cxx::__ops::_Iter_less_iter)
+	testq	%rbp, %rbp
+	popq	%rcx
+	.cfi_def_cfa_offset 56
+	popq	%rsi
+	.cfi_def_cfa_offset 48
+	jne	.L74
+.L45:
+	subq	$4, %r14
+	movl	(%r12), %eax
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 56
+	movq	%r14, %rbx
+	movl	(%r14), %ecx
+	xorl	%esi, %esi
+	subq	%r12, %rbx
+	movq	%r12, %rdi
+	movl	%eax, (%r14)
+	movq	%rbx, %rdx
+	pushq	$0
+	.cfi_def_cfa_offset 64
+	sarq	$2, %rdx
+	call	void std::__adjust_heap<int*, long, int, __gnu_cxx::__ops::_Iter_less_iter>(int*, long, long, int, __gnu_cxx::__ops::_Iter_less_iter)
+	cmpq	$7, %rbx
+	popq	%rax
+	.cfi_def_cfa_offset 56
+	popq	%rdx
+	.cfi_def_cfa_offset 48
+	jg	.L45
+.L38:
+	popq	%rbx
+	.cfi_def_cfa_offset 40
+	popq	%rbp
+	.cfi_def_cfa_offset 32
+	popq	%r12
+	.cfi_def_cfa_offset 24
+	popq	%r13
+	.cfi_def_cfa_offset 16
+	popq	%r14
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE1323:
+	.size	void std::__introsort_loop<int*, long, __gnu_cxx::__ops::_Iter_less_iter>(int*, int*, long, __gnu_cxx::__ops::_Iter_less_iter) [clone .isra.20], .-void std::__introsort_loop<int*, long, __gnu_cxx::__ops::_Iter_less_iter>(int*, int*, long, __gnu_cxx::__ops::_Iter_less_iter) [clone .isra.20]
+	.section	.text.unlikely
+.LCOLDE2:
+	.text
+.LHOTE2:
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.LC4:
+	.string	"sum = "
+	.section	.text.unlikely
+.LCOLDB5:
+	.section	.text.startup,"ax",@progbits
+.LHOTB5:
+	.p2align 4,,15
+	.globl	main
+	.type	main, @function
+main:
+.LFB1260:
+	.cfi_startproc
+	pushq	%r12
+	.cfi_def_cfa_offset 16
+	.cfi_offset 12, -16
+	pushq	%rbp
+	.cfi_def_cfa_offset 24
+	.cfi_offset 6, -24
+	pushq	%rbx
+	.cfi_def_cfa_offset 32
+	.cfi_offset 3, -32
+	subq	$131088, %rsp
+	.cfi_def_cfa_offset 131120
+	movq	%fs:40, %rax
+	movq	%rax, 131080(%rsp)
+	xorl	%eax, %eax
+	leaq	131072(%rsp), %r12
+	movq	%rsp, %rbx
+	.p2align 4,,10
+	.p2align 3
+.L76:
+	call	rand
+	cltd
+	addq	$4, %rbx
+	shrl	$24, %edx
+	addl	%edx, %eax
+	movzbl	%al, %eax
+	subl	%edx, %eax
+	movl	%eax, -4(%rbx)
+	cmpq	%r12, %rbx
+	jne	.L76
+	leaq	131072(%rsp), %rbp
+	leaq	64(%rsp), %rbx
+	movl	$30, %edx
+	movq	%rsp, %rdi
+	movq	%rbp, %rsi
+	call	void std::__introsort_loop<int*, long, __gnu_cxx::__ops::_Iter_less_iter>(int*, int*, long, __gnu_cxx::__ops::_Iter_less_iter) [clone .isra.20]
+	movq	%rbx, %rsi
+	movq	%rsp, %rdi
+	call	void std::__insertion_sort<int*, __gnu_cxx::__ops::_Iter_less_iter>(int*, int*, __gnu_cxx::__ops::_Iter_less_iter) [clone .isra.11]
+	movq	%rbx, %rcx
+.L79:
+	movl	(%rcx), %edi
+	movl	-4(%rcx), %edx
+	leaq	-4(%rcx), %rax
+	cmpl	%edx, %edi
+	jl	.L78
+	jmp	.L91
+	.p2align 4,,10
+	.p2align 3
+.L85:
+	movq	%rsi, %rax
+.L78:
+	movl	%edx, 4(%rax)
+	movl	-4(%rax), %edx
+	leaq	-4(%rax), %rsi
+	cmpl	%edx, %edi
+	jl	.L85
+	addq	$4, %rcx
+	movl	%edi, (%rax)
+	cmpq	%rbp, %rcx
+	jne	.L79
+.L93:
+	call	clock
+	xorl	%ebx, %ebx
+	movq	%rax, %rbp
+	movl	$100000, %eax
+	.p2align 4,,10
+	.p2align 3
+.L80:
+	movq	%rsp, %rdx
+	.p2align 4,,10
+	.p2align 3
+.L81:
+	movslq	(%rdx), %rcx
+	movq	%rcx, %rsi
+	addq	%rbx, %rcx
+	cmpl	$127, %esi
+	cmovg	%rcx, %rbx
+	addq	$4, %rdx
+	cmpq	%rdx, %r12
+	jne	.L81
+	subl	$1, %eax
+	jne	.L80
+	call	clock
+	pxor	%xmm0, %xmm0
+	subq	%rbp, %rax
+	movl	std::cout, %edi
+	cvtsi2sdq	%rax, %xmm0
+	divsd	.LC3(%rip), %xmm0
+	call	std::basic_ostream<char, std::char_traits<char> >& std::basic_ostream<char, std::char_traits<char> >::_M_insert<double>(double)
+	movq	%rax, %rdi
+	call	std::basic_ostream<char, std::char_traits<char> >& std::endl<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&)
+	movl	$.LC4, %esi
+	movl	std::cout, %edi
+	call	std::basic_ostream<char, std::char_traits<char> >& std::operator<< <std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*)
+	movq	%rbx, %rsi
+	movq	%rax, %rdi
+	call	std::basic_ostream<char, std::char_traits<char> >& std::basic_ostream<char, std::char_traits<char> >::_M_insert<long long>(long long)
+	movq	%rax, %rdi
+	call	std::basic_ostream<char, std::char_traits<char> >& std::endl<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&)
+	xorl	%eax, %eax
+	movq	131080(%rsp), %rdi
+	xorq	%fs:40, %rdi
+	jne	.L92
+	addq	$131088, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 32
+	popq	%rbx
+	.cfi_def_cfa_offset 24
+	popq	%rbp
+	.cfi_def_cfa_offset 16
+	popq	%r12
+	.cfi_def_cfa_offset 8
+	ret
+.L91:
+	.cfi_restore_state
+	movq	%rcx, %rax
+	addq	$4, %rcx
+	cmpq	%rbp, %rcx
+	movl	%edi, (%rax)
+	jne	.L79
+	jmp	.L93
+.L92:
+	call	__stack_chk_fail
+	.cfi_endproc
+.LFE1260:
+	.size	main, .-main
+	.section	.text.unlikely
+.LCOLDE5:
+	.section	.text.startup
+.LHOTE5:
+	.section	.text.unlikely
+.LCOLDB6:
+	.section	.text.startup
+.LHOTB6:
+	.p2align 4,,15
+	.type	_GLOBAL__sub_I_main, @function
+_GLOBAL__sub_I_main:
+.LFB1302:
+	.cfi_startproc
+	subq	$8, %rsp
+	.cfi_def_cfa_offset 16
+	movl	std::__ioinit, %edi
+	call	std::ios_base::Init::Init()
+	movl	$__dso_handle, %edx
+	movl	std::__ioinit, %esi
+	movl	std::ios_base::Init::~Init(), %edi
+	addq	$8, %rsp
+	.cfi_def_cfa_offset 8
+	jmp	__cxa_atexit
+	.cfi_endproc
+.LFE1302:
+	.size	_GLOBAL__sub_I_main, .-_GLOBAL__sub_I_main
+	.section	.text.unlikely
+.LCOLDE6:
+	.section	.text.startup
+.LHOTE6:
+	.section	.init_array,"aw"
+	.align 8
+	.quad	_GLOBAL__sub_I_main
+	.local	std::__ioinit
+	.comm	std::__ioinit,1,1
+	.section	.rodata.cst8,"aM",@progbits,8
+	.align 8
+.LC3:
+	.long	0
+	.long	1093567616
+	.hidden	__dso_handle
+	.ident	"GCC: (Ubuntu 4.9.3-13ubuntu2) 4.9.3"
+	.section	.note.GNU-stack,"",@progbits
