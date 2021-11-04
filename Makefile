@@ -26,8 +26,8 @@ fenabled:
 test: 
 	./optimO2
 	./optimO3
-	./optimO2_ftree
-	./optimO2_rest_of_flags
+	./optimO2_vec
+	./optimO2_others
 
 clean:
 	rm -f optimO2 optimO3 optimO2_vec optimO2_others
