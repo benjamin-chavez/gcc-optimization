@@ -7,7 +7,7 @@ all: clean optims assembly fenabled
 optims:    
 	$(CC) pres.cpp -o optimO2 $(CFLAGS) -O2   
 	$(CC) pres.cpp -o optimO3 $(CFLAGS) -O3
-	$(CC) pres.cpp -o optimO2_vec $(CFLAGS) -O2 -ftree-vectorize -fopt-info-vec=vectorize.txt
+	$(CC) pres.cpp -o optimO2_vec $(CFLAGS) -O2 -ftree-vectorize -fopt-info-vec-missed=vectorize.txt
 	$(CC) pres.cpp -o optimO2_others $(CFLAGS) -O2 $(O3NOTVEC) 
 
 assembly:
