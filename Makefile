@@ -2,7 +2,7 @@ CC = gcc-4.9
 CFLAGS = -g -l stdc++
 O3NOTVEC = -fgcse-after-reload -finline-functions -fipa-cp-clone -fpredictive-commoning -ftree-loop-distribute-patterns -funswitch-loops  
 
-all: clean optims assembly fenabled   
+all: clean optims assembly fenabled o2optimizations
 
 optims:    
 	$(CC) pres.cpp -o optimO2 $(CFLAGS) -O2   
@@ -29,8 +29,29 @@ test:
 	./optimO2_vec
 	./optimO2_others
 
+o2optimizations:
+	$(CC) pres.cpp -o fgcse-after-reload -fgcse-after-reload $(CFLAGS) -O2
+	$(CC) pres.cpp -o finline-functions -finline-functions $(CFLAGS) -O2
+	$(CC) pres.cpp -o fipa-cp-clone -fipa-cp-clone $(CFLAGS) -O2
+	$(CC) pres.cpp -o fpredictive-commoning -fpredictive-commoning $(CFLAGS) -O2
+	$(CC) pres.cpp -o ftree-loop-distribute-patterns -ftree-loop-distribute-patterns $(CFLAGS) -O2
+	$(CC) pres.cpp -o ftree-vectorize -ftree-vectorize $(CFLAGS) -O2
+	$(CC) pres.cpp -o funswitch-loops -funswitch-loops $(CFLAGS) -O2
+
+o2withflags:
+	./optimO2
+	./optimO3
+	./fgcse-after-reload
+	./finline-functions
+	./fipa-cp-clone
+	./fpredictive-commoning
+	./ftree-loop-distribute-patterns
+	./ftree-vectorize
+	./funswitch-loops
+
 clean:
 	rm -f optimO2 optimO3 optimO2_vec optimO2_others
 	#rm -f optimO2.s optimO3.s
 	rm -f optimO2dmp.txt optimO3dmp.txt optimO2vec_dmp.txt optimO2others_dmp.txt
 	rm -f otwo.txt othree.txt vectorize.txt
+	rm -f fgcse-after-reload finline-functions fipa-cp-clone fpredictive-commoning ftree-loop-distribute-patterns ftree-vectorize funswitch-loops
