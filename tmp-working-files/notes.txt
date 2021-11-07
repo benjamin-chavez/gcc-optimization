@@ -37,6 +37,7 @@ Terms:
  - Modern compiles recognize some patterns and optimize them with branchless code.
  - Branchless code can give you a noticeable performance improvement especially if you use conditionals iterativel
  - NOTHING IS VECTORIZED**
+ - gimple
 
 
 Resources:
@@ -46,3 +47,26 @@ Resources:
  - https://gcc.gnu.org/projects/tree-ssa/
  - https://monoinfinito.wordpress.com/series/vectorization-in-gcc/
  - https://dev.to/jobinrjohnson/branchless-programming-does-it-really-matter-20j4
+
+
+.L83:   # The inner loop from gcc -O2
+    movsx   rcx, DWORD PTR [rdx]  # load with sign-extension from int32 to int64
+    cmp     ecx, 127
+    jle     .L82        # conditional-jump over the next instruction 
+    add     rbp, rcx    # sum+=data[c]
+.L82:
+    add     rdx, 4
+    cmp     rbx, rdx
+    jne     .L83
+
+
+
+.L82: # The inner loop from gcc -O2 -ftree-vectorize 
+    movsx   rcx, DWORD PTR [rdx]
+    mov     rsi, rcx
+    add     rcx, rbx
+    cmp     esi, 127
+    cmovg   rbx, rcx
+    add     rdx, 4
+    cmp     r12, rdx
+    jne     .L82

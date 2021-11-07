@@ -4,6 +4,7 @@ CFLAGS = -g -l stdc++
 O3NOTVEC = -fgcse-after-reload -finline-functions -fipa-cp-clone -fpredictive-commoning -ftree-loop-distribute-patterns -funswitch-loops  
 
 
+
 all: clean optims assembly fenabled
 
 optims:    
@@ -36,6 +37,10 @@ optims:
 	# Secondary example with embeded assembler instructions
 	$(CC) src/cmov_example/cmov_test.c -o with_cmov -DCMOV -Wall -O2
 	$(CC) src/cmov_example/cmov_test.c -o without_cmov -Wall -O2
+
+	# Optimization with Loop differentiation
+	$(CC) src/pres_sum_ternary.cpp -o optimO2_vec_sum_ternary -ftree-vectorize $(CFLAGS) -O2
+	$(CC) src/pres_sum_global.cpp -o optimO2_vec_sum_global -ftree-vectorize $(CFLAGS) -O2
 	
 
 assembly:
@@ -91,15 +96,18 @@ cmov-example:
 	@printf "\n"
 	time -f 'FORMAT' -p ./without_cmov
 
-
-
 vectorize-output: 
 	$(CC) src/pres.cpp -ftree-vectorize -fopt-info-vec-all  $(CFLAGS) -O2
-	
 
+loop-variations:
+	./optimO2
+	./optimO2_vec
+	./optimO2_vec_sum_ternary
+	./optimO2_vec_sum_global
+	
 clean:
 	rm -rf subdir
-	rm -f optimO2 optimO3 optimO2_vec optimO2_others optimO2_gcc9 optimO3_gcc9 optimO2_unsorted optimO2_vec_unsorted optimO2_reverse_sort optimO2_vec_reverse_sort optimO2_traverse_sorted optimO2_vec_traverse_sorted with_cmov without_cmov
+	rm -f optimO2 optimO3 optimO2_vec optimO2_others optimO2_gcc9 optimO3_gcc9 optimO2_unsorted optimO2_vec_unsorted optimO2_reverse_sort optimO2_vec_reverse_sort optimO2_traverse_sorted optimO2_vec_traverse_sorted with_cmov without_cmov optimO2_vec_sum_ternary optimO2_vec_sum_global
 	rm -f optimO2.s optimO3.s
 	rm -f optimO2dmp.txt optimO3dmp.txt optimO2vec_dmp.txt optimO2others_dmp.txt
 	rm -f otwo.txt othree.txt vectorize.txt
